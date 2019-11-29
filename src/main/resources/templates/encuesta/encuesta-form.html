@@ -1,0 +1,104 @@
+<form class="form" role="form" autocomplete="off"
+	th:object="${encuestaForm}"
+	th:action="${editMode} ?@{/editEncuesta} :@{/encuestaForm}"
+	method="post">
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Codigo
+		</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="text"
+				th:field="${encuestaForm.encuestaId}">
+			<div class="alert-danger" th:if="${#fields.hasErrors('encuestaId')}"
+				th:errors="*{encuestaId}">Name Error</div>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Nombre
+			de la encuesta </label>
+		<div class="col-lg-9">
+			<input class="form-control" type="text"
+				th:field="${encuestaForm.nombre}">
+			<div class="alert-danger" th:if="${#fields.hasErrors('nombre')}"
+				th:errors="*{nombre}">Name Error</div>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Descripcion</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="text"
+				th:field="${encuestaForm.descripcion}">
+			<div class="alert-danger" th:if="${#fields.hasErrors('descripcion')}"
+				th:errors="*{descripcion}">Name Error</div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Tipo
+		</label>
+		<div class="col-lg-9">
+			<select class="form-control" type="text"
+				th:field="${encuestaForm.tipo}">
+				<option value="">Seleccione un tipo</option>
+				<option value="Activo">Publica</option>
+				<option value="Inactivo">Privada</option>
+			</select>
+
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Objetivo</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="text"
+				th:field="${encuestaForm.objetivo}">
+			<div class="alert-danger" th:if="${#fields.hasErrors('objetivo')}"
+				th:errors="*{objetivo}">Name Error</div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Genero</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="text"
+				th:field="${encuestaForm.genero}">
+			<div class="alert-danger" th:if="${#fields.hasErrors('genero')}"
+				th:errors="*{genero}">Name Error</div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Fecha
+			inicio</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="date" th:field="${encuestaForm.fechaInicio}">
+			<div class="alert-danger" th:if="${#fields.hasErrors('fechaInicio')}"
+				th:errors="*{fechaInicio}">Name Error</div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Fecha
+			fin</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="date" th:field="${encuestaForm.fechaFin}">
+				<div class="alert-danger" th:if="${#fields.hasErrors('fechaFin')}"
+				th:errors="*{fechaFin}">Name Error</div>
+		</div>
+	</div>
+	<div class="form-group row">
+		<label class="col-lg-3 col-form-label form-control-label">Catidad
+			de personas</label>
+		<div class="col-lg-9">
+			<input class="form-control" type="text" th:field="${encuestaForm.cantperson}">
+      <div class="alert-danger" th:if="${#fields.hasErrors('cantperson')}"
+				th:errors="*{cantperson}">Name Error</div>
+		</div>
+	</div>
+
+	<div class="form-group row">
+		<div class="col-lg-12 text-center">
+			<a class="btn btn-secondary" th:href="@{'/editUsuario/cancel'}">Cancelar</a>
+			<input type="submit" class="btn btn-primary" value="Guardar"
+				th:value="${editMode}?'Actualizar':'Registrar'">
+		</div>
+	</div>
+	<div class="alert alert-danger text-center" th:if="${formErrorMessage}"
+		th:text="${formErrorMessage}">Error MEssage</div>
+</form>

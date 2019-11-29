@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<div class="table-responsive">
+	<table id="preguntaList"
+		class="table table-bordered table-hover table-striped">
+		<thead class="thead-light">
+			<tr>
+				<th scope="col">Codigo</th>
+				<th scope="col">Pregunta</th>
+				<th scope="col">Acciones</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="pregunta: ${preguntaList}">
+				<td th:text="${pregunta.preguntaId}" />
+				<td th:text="${pregunta.pregunta}" />
+				<td><a href="#"
+					th:onclick="'javascript:opciones(\''+ ${pregunta.preguntaId} +'\');'">Opciones de respuesta
+						</a>| <a href="#" th:href="@{'/editPregunta/'+ ${pregunta.preguntaId}}"><i class="fas fa-edit"></i></a> | <a href="#"
+					th:onclick="'javascript:confirmDelete(\''+ ${pregunta.preguntaId} +'\');'"><i
+						class="fas fa-user-times"></i></a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div class="alert alert-danger text-center" th:if="${listErrorMessage}"
+		th:text="${listErrorMessage}">Error MEssage</div>
+</div>
+<script type="text/javascript">
+	function opciones(id) {
+		$('#cerradaModal').modal('show');
+		$("#usuarioIdHiddenInput").val(id);
+		$("#usuarioIdHiddenInput2").val(id);
+		$("#usuarioIdHiddenInput3").val(id);
+		$("#usuarioIdHiddenInput4").val(id);
+		$("#usuarioIdHiddenInput5").val(id);
+	}
+</script>
+
+
+<script type="text/javascript">
+	function confirmDelete(id) {
+		$('#deleteModal').modal('show');
+		$("#usuarioIdHiddenInput").val(id);
+	}
+	function deletePregunta() {
+		var id = $("#usuarioIdHiddenInput").val();
+		window.location = "deletePregunta/" + id;
+	}
+</script>
+</html>

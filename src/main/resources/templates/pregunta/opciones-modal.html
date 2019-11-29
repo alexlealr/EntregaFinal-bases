@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<!-- Modal -->
+<div class="modal fade" id="cerradaModal" tabindex="-1" role="dialog"
+	aria-labelledby="deleteModalTitle" aria-hidden="true">
+	<div class="modal-dialog modal-lg" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalLongTitle">Opciones de
+					respuesta</h5>
+				<button type="button" class="close" data-dismiss="modal"
+					aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+
+				<label class="col-lg-3">Opciones cerradas:</label>
+				<form role="form" class="form" th:object="${opcionForm}" action="#"
+					th:action="@{/crearOpcion}" method="post">
+					<input type="hidden" id="usuarioIdHiddenInput" name="pregunta">
+					<div class="form-group row">
+						<label class="col-lg-1 col-form-label form-control-label"></label>
+						<div class="col-lg-8">
+							<input class="form-control" type="text" id="respuesta"
+								name="respuesta" placeholder="Ingrese la opcion de respuesta">
+							<input class="form-control" type="hidden" id="tiporespuesta"
+								value="cerrada" name="tiporespuesta">
+						</div>
+						<button type="submit" class="btn btn-primary">Registrar</button>
+
+					</div>
+				</form>
+				<label class="col-lg-5">Opciones de seleccion multiple:</label>
+				<form role="form" class="form" th:object="${opcionForm}" action="#"
+					th:action="@{/crearOpcion}" method="post">
+					<input type="hidden" id="usuarioIdHiddenInput2" name="pregunta">
+					<div class="form-group row">
+						<label class="col-lg-1 col-form-label form-control-label"></label>
+						<div class="col-lg-8">
+							<input class="form-control" type="text" id="respuesta"
+								name="respuesta" placeholder="Ingrese la opcion de respuesta">
+							<input class="form-control" type="hidden" id="tiporespuesta"
+								value="multiple" name="tiporespuesta">
+						</div>
+						<button type="submit" class="btn btn-primary">Registrar</button>
+					</div>
+				</form>
+				<label class="col-lg-3">Ranking:</label>
+				<form role="form" class="form" th:object="${opcionForm}" action="#"
+					th:action="@{/crearOpcion}" method="post">
+					<input type="hidden" id="usuarioIdHiddenInput3" name="pregunta">
+					<div class="form-group row">
+						<label class="col-lg-1 col-form-label form-control-label"></label>
+						<div class="col-lg-8">
+							<input class="form-control" type="text" id="respuesta"
+								name="respuesta" placeholder="Ingrese la opcion de respuesta">
+							<input class="form-control" type="hidden" id="tiporespuesta"
+								value="ranking" name="tiporespuesta">
+						</div>
+						<button type="submit" class="btn btn-primary">Registrar</button>
+					</div>
+				</form>
+				<label class="col-lg-3">Escala:</label>
+				<form role="form" class="form" th:object="${opcionForm}" action="#"
+					th:action="@{/crearOpcion}" method="post">
+
+
+					<input type="hidden" id="usuarioIdHiddenInput4" name="pregunta">
+					<div class="form-group row">
+						<input type="radio" class="col-lg-1" value="opcion1" name="respuesta">
+						<div class="col-lg-8">
+							<input class="form-control" type="text"
+								placeholder="1-2-3-4-5-6-7-8-9-10" disabled>
+							<div class="alert-danger"></div>
+						</div>
+					</div>
+
+					<div class="form-group row">
+
+						<input type="radio" class="col-lg-1" value="opcion2" name="respuesta">
+						<div class="col-lg-8">
+							<input class="form-control" type="text" placeholder="1-2-3-4-5"
+								disabled>
+							<div class="alert-danger"></div>
+						</div>
+					</div>
+					<div class="form-group row">
+
+						<input type="radio" class="col-lg-1" value="opcion3" name="respuesta">
+						<div class="col-lg-8">
+							<input class="form-control" type="text"
+								placeholder="Me gusto mucho-Me gusto-No me gusto-No me gusto nada"
+								disabled>
+							<div class="alert-danger"></div>
+						</div>
+					</div>
+					<div class="form-group row">
+						<input type="radio"
+							class="col-lg-1" value="opcion4 " name="respuesta">
+						<div class="col-lg-8">
+							<input class="form-control" type="text"
+								placeholder="Muchas veces-A veces-Casi nunca-Nunca" disabled>
+							<div class="alert-danger"></div>
+						</div>
+					</div>
+					<input class="form-control" type="hidden" id="tiporespuesta"
+						value="escala" name="tiporespuesta">
+					<div class="form-group row">
+						<label class="col-lg-1 col-form-label form-control-label"></label>
+						<div class="col-lg-8">
+							<input class="form-control" type="hidden">
+						</div>
+						<button type="submit" class="btn btn-primary">Registrar</button>
+					</div>
+				</form>
+
+				<label class="col-lg-3">Mixta:</label>
+				<form role="form" class="form" th:object="${opcionForm}" action="#"
+					th:action="@{/crearOpcion}" method="post">
+					<input type="hidden" id="usuarioIdHiddenInput5" name="pregunta">
+				<div class="form-group row">
+					<label class="col-lg-1 col-form-label form-control-label"></label>
+					<div class="col-lg-8">
+						<input class="form-control" type="text" id="respuesta" name="respuesta"
+							placeholder="Ingrese la opcion de respuesta">
+						<div class="alert-danger"></div>
+					</div>
+					<input class="form-control" type="hidden" id="tiporespuesta"
+						value="mixta" name="tiporespuesta">
+					<button type="submit" class="btn btn-primary">Registrar</button>
+
+				</div>
+				</form>
+				<br> <br>
+	
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+
+			</div>
+		</div>
+	</div>
+</div>
+</html>
